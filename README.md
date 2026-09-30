@@ -2,21 +2,25 @@
 
 Aplicación web instalable para demostrar un recetario en iPhone. Se abre como carpeta en Visual Studio 2026 y no requiere .NET MAUI, Mac, cuenta Apple Developer ni servidor para guardar los datos.
 
+## Login actualizado
+
+Esta versión añade correo y contraseña, usuario al registrarse, código de verificación por correo, recuperación por código, acceso con Google y botones para mostrar/ocultar contraseñas. Para activar los servicios reales sigue **CONFIGURAR-LOGIN.md**. No podrás crear cuentas nuevas hasta configurar Supabase, SMTP y Google. El acceso local anterior permanece disponible para cuentas ya existentes.
+
 ## Funciones incluidas
 
-- Registro e inicio de sesión **locales** para separar recetas en el mismo navegador.
+- Autenticación con Supabase; recetas separadas por cuenta y guardadas en el navegador.
 - Tres recetas de ejemplo; crear, editar y eliminar recetas propias.
 - Buscar, filtrar por categoría y marcar favoritos.
 - Exportar e importar las recetas de la cuenta activa en un archivo JSON.
 - Pantalla de inicio y archivos de la aplicación disponibles sin Internet tras la primera carga correcta.
 
-El login es una función de demostración: guarda un hash de contraseña y los datos en el almacenamiento del navegador. No ofrece la seguridad ni la recuperación de cuentas de un servicio con servidor. Desinstalar la PWA o borrar sus datos puede eliminar las recetas; usa **Perfil → Exportar mis recetas** para hacer una copia.
+Las cuentas nuevas se autentican en Supabase; los datos de recetas siguen almacenados localmente. El acceso requiere conexión, aunque una sesión local ya abierta permite consultar las recetas offline. Desinstalar la PWA o borrar sus datos puede eliminar las recetas; usa **Perfil → Exportar mis recetas** para hacer una copia.
 
 ## Abrir en Visual Studio 2026
 
 1. Descomprime el ZIP y en Visual Studio elige **Archivo → Abrir → Carpeta**; selecciona `MiRecetario-PWA`.
 2. Para probarla en Windows sin instalar nada más, abre PowerShell dentro de la carpeta y ejecuta `powershell -NoProfile -ExecutionPolicy Bypass -File .\Iniciar-Mi-Recetario.ps1`. Se abrirá `http://localhost:8000/`.
-3. Crea un usuario desde la pantalla de registro. Las recetas de muestra aparecerán en la pantalla principal.
+3. Configura el servicio siguiendo CONFIGURAR-LOGIN.md y después crea un usuario. Las recetas de muestra aparecerán en la pantalla principal.
 
 Si ya tienes Python, también puedes ejecutar `python -m http.server 8000` desde la carpeta. Deja abierta la terminal que inició el servidor durante la prueba. La opción `-ExecutionPolicy Bypass` se aplica solo a esa ejecución del script y no modifica la configuración permanente de Windows.
 
@@ -45,6 +49,7 @@ En la exposición usa la **misma instalación y el mismo iPhone** donde preparas
 - `index.html`: entrada y metadatos de instalación.
 - `styles.css`: diseño adaptable al iPhone.
 - `app.js`: pantallas y almacenamiento local.
+- `auth.js`, `auth-config.js`: login y configuración pública de Supabase.
 - `service-worker.js`: caché de los archivos necesarios para abrir sin Internet.
 - `manifest.webmanifest`, `icons/`: nombre, colores e iconos de la instalación.
 - `Iniciar-Mi-Recetario.ps1`: servidor de prueba local en Windows.
