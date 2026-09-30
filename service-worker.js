@@ -1,4 +1,4 @@
-const CACHE = 'mi-recetario-v4-auth';
+const CACHE = 'mi-recetario-v3-auth';
 const SHELL = ['./', './index.html', './styles.css', './app.js', './auth.js', './auth-config.js', './manifest.webmanifest', './icons/icon.svg', './icons/icon-192.png', './icons/icon-512.png', './icons/apple-touch-icon.png'];
 self.addEventListener('install', event => {
   event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(SHELL)).then(() => self.skipWaiting()));
