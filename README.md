@@ -1,3 +1,7 @@
+# Nueva versión: inventario, compras y temporizadores
+
+Empieza por **ACTIVAR-INVENTARIO.md**. Incluye los pasos para ejecutar el SQL en Supabase, publicar en GitHub y probar en iPhone. Las recetas y el inventario pueden sincronizarse después de activar el SQL; la guía original de abajo describe la versión anterior de guardado local.
+
 # Mi Recetario PWA
 
 Aplicación web instalable para demostrar un recetario en iPhone. Se abre como carpeta en Visual Studio 2026 y no requiere .NET MAUI, Mac, cuenta Apple Developer ni servidor para guardar los datos.

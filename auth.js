@@ -17,6 +17,7 @@
   function result({data,error}) {if(error) throw error; return data;}
   function redirect() {return window.RECETARIO_AUTH_CONFIG.redirectUrl || new URL('./', location.href).href;}
   const service = {
+    client,
     async signup(username,email,password) {return result(await (await client()).auth.signUp({email,password,options:{data:{username},emailRedirectTo:redirect()}}));},
     async login(email,password) {return result(await (await client()).auth.signInWithPassword({email,password}));},
     async verify(email,token,type) {return result(await (await client()).auth.verifyOtp({email,token,type}));},
