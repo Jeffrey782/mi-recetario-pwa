@@ -1,5 +1,5 @@
-const CACHE = 'mi-recetario-v5-inventario';
-const SHELL = ['./', './index.html', './styles.css', './app.js', './extras.js', './recetario-core.js', './auth.js', './auth-config.js', './manifest.webmanifest', './icons/icon.svg', './icons/icon-192.png', './icons/icon-512.png', './icons/apple-touch-icon.png'];
+const CACHE = 'mi-recetario-v8-catalogo-plan';
+const SHELL = ['./', './index.html', './styles.css', './app.js', './extras.js', './kitchen.js', './recetario-core.js', './auth.js', './auth-config.js', './manifest.webmanifest', './icons/icon.svg', './icons/icon-192.png', './icons/icon-512.png', './icons/apple-touch-icon.png'];
 self.addEventListener('install', event => {
   event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(SHELL)).then(() => self.skipWaiting()));
 });

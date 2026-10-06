@@ -1,4 +1,4 @@
-# Nueva versión: inventario, compras y temporizadores
+# Nueva versión: catálogo, sugerencias, planes, lista de compras e inventario
 
 Empieza por **ACTIVAR-INVENTARIO.md**. Incluye los pasos para ejecutar el SQL en Supabase, publicar en GitHub y probar en iPhone. Las recetas y el inventario pueden sincronizarse después de activar el SQL; la guía original de abajo describe la versión anterior de guardado local.
 
