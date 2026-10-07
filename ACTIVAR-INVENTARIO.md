@@ -6,7 +6,7 @@ En tu proyecto Supabase, abre **SQL Editor > New query**, pega todo el contenido
 La aplicación funciona localmente antes de ejecutar el script, pero no compartirá los datos con el iPhone hasta completarlo. **Perfil > Sincronizar** muestra el resultado. No hemos ejecutado el SQL ni verificado tu servidor desde aquí.
 
 ## 2. Publicar en GitHub
-Sube los archivos de esta carpeta al mismo repositorio y a las mismas rutas. Incluye `extras.js`, `recetario-core.js`, `app.js`, `auth.js`, `index.html`, `styles.css` y `service-worker.js`. Este último ya cambia la caché a `mi-recetario-v9-sonido`. Espera la ejecución verde en Actions. En iPhone abre la aplicación con Internet, ciérrala completamente y vuelve a abrirla. El SQL se ejecuta en Supabase; no es un archivo de configuración del navegador.
+Sube los archivos de esta carpeta al mismo repositorio y a las mismas rutas. Incluye `extras.js`, `recetario-core.js`, `app.js`, `auth.js`, `index.html`, `styles.css` y `service-worker.js`. Este último ya cambia la caché a `mi-recetario-v12-sonido-perfil`. Espera la ejecución verde en Actions. En iPhone abre la aplicación con Internet, ciérrala completamente y vuelve a abrirla. El SQL se ejecuta en Supabase; no es un archivo de configuración del navegador.
 
 ## 3. Prueba rápida para la clase
 1. Inventario: agrega **Huevos**, **2**, **unidad**.
@@ -32,7 +32,7 @@ Los temporizadores pertenecen al dispositivo y a la sesión de pestaña. Se cons
 Las compras son exclusivamente demostraciones: catálogo y precios de ejemplo, sin cobros, tarjetas reales ni entregas. El catálogo reside en el código y cada usuario mantiene su propio carrito e inventario. Integrar pagos reales requiere un proveedor, validación de pedidos en servidor y gestión de entrega; no basta con activar un botón.
 
 ## Catálogo, sugerencias y planes (versión 8)
-Esta actualización conserva el login, el inventario y las compras. Si ya ejecutaste el SQL anterior, **no necesitas ejecutarlo otra vez**. Sube también el archivo nuevo `kitchen.js` y el `index.html` actualizado; el service worker usa `mi-recetario-v9-sonido`.
+Esta actualización conserva el login, el inventario y las compras. Si ya ejecutaste el SQL anterior, **no necesitas ejecutarlo otra vez**. Sube también el archivo nuevo `kitchen.js` y el `index.html` actualizado; el service worker usa `mi-recetario-v12-sonido-perfil`.
 
 Desde Inicio tienes tres accesos:
 - **Catálogo:** ocho recetas incluidas (arroz, habichuelas, pollo horneado, huevos revueltos, ensalada, avena, pasta con tomate y tortilla de papas). Puedes consultar sus ingredientes y pasos sin guardarlas. “Guardar en mi recetario” crea una copia editable; pulsar de nuevo abre la copia y no la duplica.
@@ -49,3 +49,9 @@ El plan y la lista se guardan con el resto de datos en Supabase, después de act
 
 ## Sonido del temporizador
 La versión 9 activa el audio al pulsar Iniciar y reproduce seis tonos cuando termina. El botón Probar sonido permite comprobar volumen y desbloqueo de audio antes de cocinar. Mantén la aplicación visible; no garantiza avisos con la pantalla bloqueada o en segundo plano. La prueba automática usa una simulación de Web Audio; falta confirmar el sonido en tu iPhone.
+
+## Fotos de las recetas
+Abre una receta y pulsa Editar receta. En Foto de la receta, elige una imagen de tu galería o cámara si el dispositivo ofrece esa opción. Revisa la vista previa y guarda. Quitar foto recupera el emoji después de guardar. También puedes hacerlo al crear una receta nueva. La imagen se convierte a JPEG de hasta 900 píxeles y se reduce a unos 100 KB para ahorrar espacio. Si no se puede decodificar, prueba JPG o PNG; archivos mayores de 20 MB se rechazan. La foto se guarda y sincroniza con la receta usando el mismo SQL existente. Se incluye en los respaldos de recetas. La capacidad local del navegador es limitada; esta implementación es adecuada para una demostración con un catálogo personal pequeño. Para muchas fotos, una futura versión debería usar almacenamiento de archivos dedicado.
+
+## Elegir sonido
+En Perfil > Sonido del temporizador, abre el selector Sonido: Clásico, Digital, Suave o Campana. La elección se guarda al cambiar. Pulsa Probar sonido para escucharla. Se guarda por usuario y se aplica a todos sus temporizadores, también en otros dispositivos después de sincronizar. Son tonos sintetizados, no archivos de audio externos. Las limitaciones de iPhone en segundo plano permanecen.

@@ -1,4 +1,4 @@
-const CACHE = 'mi-recetario-v9-sonido';
+const CACHE = 'mi-recetario-v12-sonido-perfil';
 const SHELL = ['./', './index.html', './styles.css', './app.js', './extras.js', './kitchen.js', './recetario-core.js', './auth.js', './auth-config.js', './manifest.webmanifest', './icons/icon.svg', './icons/icon-192.png', './icons/icon-512.png', './icons/apple-touch-icon.png'];
 self.addEventListener('install', event => {
   event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(SHELL)).then(() => self.skipWaiting()));
